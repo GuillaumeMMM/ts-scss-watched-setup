@@ -1,0 +1,25 @@
+{
+  "name": "collages-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "watch-ts": "tsc --watch",
+    "css-compile": "node-sass --output dist/styles src/styles/styles.scss",
+    "watch-scss": "npm run css-compile && npm run css-compile -- -w",
+    "copy-html": "mkdir -p dist && cp -R ./src/*.html ./dist/",
+    "watch-html": "watch 'npm run copy-html' src/",
+    "start": "concurrently --kill-others 'npm:watch-*'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^8.0.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "ts-node": "^10.9.1",
+    "watch": "^1.0.2"
+  }
+}
